@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function ApplyPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [formData, setFormData] = useState({
     // Step 1
     fullName: "",
@@ -38,6 +40,30 @@ export default function ApplyPage() {
     }
     // Final submission
     router.push("/success");
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      const droppedFile = e.dataTransfer.files[0];
+      if (droppedFile.type === "application/pdf" || droppedFile.name.toLowerCase().endsWith('.pdf')) {
+        updateForm("file", droppedFile);
+      } else {
+        alert("Please upload a PDF file.");
+      }
+    }
   };
 
   return (
@@ -207,21 +233,43 @@ export default function ApplyPage() {
               <div className="flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-4 duration-300">
                 <div>
                   <label className="block font-label-md text-on-surface mb-2">Resume / CV (PDF Only)</label>
-                  <div className="w-full border-2 border-dashed border-outline-variant rounded-xl p-10 flex flex-col items-center justify-center gap-2 hover:border-primary hover:bg-surface-container-low transition-colors cursor-pointer relative group">
+                  <div 
+                    className={`w-full border-2 border-dashed rounded-xl p-10 flex flex-col items-center justify-center gap-2 transition-colors cursor-pointer relative group ${
+                      isDragging 
+                        ? "border-primary bg-primary/10" 
+                        : "border-outline-variant hover:border-primary hover:bg-surface-container-low"
+                    }`}
+                    onDragOver={handleDragOver}
+                    onDragLeave={handleDragLeave}
+                    onDrop={handleDrop}
+                    onClick={() => fileInputRef.current?.click()}
+                  >
                     <input 
+                      ref={fileInputRef}
                       type="file" 
-                      accept=".pdf" 
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" 
-                      onChange={(e) => updateForm("file", e.target.files?.[0] || null)}
+                      accept=".pdf,application/pdf" 
+                      className="hidden" 
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          if (file.type === "application/pdf" || file.name.toLowerCase().endsWith('.pdf')) {
+                            updateForm("file", file);
+                          } else {
+                            alert("Please upload a PDF file.");
+                          }
+                        }
+                      }}
                     />
-                    <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                      <span className="material-symbols-outlined text-[24px]">upload_file</span>
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-transform ${isDragging ? 'bg-primary text-white scale-110' : 'bg-surface-container text-primary group-hover:scale-110'}`}>
+                      <span className="material-symbols-outlined text-[32px]">
+                        {isDragging ? 'file_download' : 'upload_file'}
+                      </span>
                     </div>
-                    <div className="font-title-md text-on-surface mt-2 text-center">
-                      {formData.file ? formData.file.name : "Drag & drop your resume here"}
+                    <div className="font-title-md text-on-surface mt-4 text-center font-bold">
+                      {formData.file ? formData.file.name : (isDragging ? "Drop PDF here" : "Drag & drop your PDF resume here")}
                     </div>
                     <div className="font-body-sm text-on-surface-variant text-center">
-                      {formData.file ? "File selected. Click to change." : "or click to browse from your computer"}
+                      {formData.file ? "PDF selected. Click to change." : "or click to browse from your computer (PDF only)"}
                     </div>
                   </div>
                 </div>

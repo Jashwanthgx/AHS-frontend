@@ -5,53 +5,58 @@ import Link from "next/link";
 
 const JOBS = [
   // Stripe
-  { id: 1, title: "Senior Staff Software Engineer", company: "Stripe", location: "San Francisco, CA (Hybrid)", salary: "$200k - $280k", icon: "code" },
-  { id: 2, title: "Payment Systems Architect", company: "Stripe", location: "Remote", salary: "$180k - $240k", icon: "account_balance" },
-  { id: 3, title: "Data Engineer", company: "Stripe", location: "Seattle, WA", salary: "$150k - $210k", icon: "database" },
-  { id: 4, title: "Product Marketing Manager", company: "Stripe", location: "New York, NY", salary: "$130k - $180k", icon: "campaign" },
+  { id: 1, title: "Senior Staff Software Engineer", company: "Stripe", location: "San Francisco, CA (Hybrid)", salary: "$200k - $280k", icon: "code", domain: "Backend" },
+  { id: 2, title: "Payment Systems Architect", company: "Stripe", location: "Remote", salary: "$180k - $240k", icon: "account_balance", domain: "Backend" },
+  { id: 3, title: "Data Engineer", company: "Stripe", location: "Seattle, WA", salary: "$150k - $210k", icon: "database", domain: "Data" },
+  { id: 4, title: "Product Marketing Manager", company: "Stripe", location: "New York, NY", salary: "$130k - $180k", icon: "campaign", domain: "Product" },
   
   // Vercel
-  { id: 5, title: "Frontend Developer", company: "Vercel", location: "New York, NY (Remote)", salary: "$150k - $210k", icon: "web" },
-  { id: 6, title: "Developer Advocate", company: "Vercel", location: "San Francisco, CA", salary: "$140k - $190k", icon: "record_voice_over" },
-  { id: 7, title: "Infrastructure Engineer", company: "Vercel", location: "Remote", salary: "$170k - $230k", icon: "dns" },
-  { id: 8, title: "Technical Writer", company: "Vercel", location: "Remote", salary: "$110k - $150k", icon: "edit_document" },
+  { id: 5, title: "Frontend Developer", company: "Vercel", location: "New York, NY (Remote)", salary: "$150k - $210k", icon: "web", domain: "Frontend" },
+  { id: 6, title: "Developer Advocate", company: "Vercel", location: "San Francisco, CA", salary: "$140k - $190k", icon: "record_voice_over", domain: "Other" },
+  { id: 7, title: "Infrastructure Engineer", company: "Vercel", location: "Remote", salary: "$170k - $230k", icon: "dns", domain: "Backend" },
+  { id: 8, title: "Technical Writer", company: "Vercel", location: "Remote", salary: "$110k - $150k", icon: "edit_document", domain: "Other" },
   
   // OpenAI
-  { id: 9, title: "Machine Learning Researcher", company: "OpenAI", location: "Remote", salary: "$250k - $350k", icon: "science" },
-  { id: 10, title: "AI Alignment Engineer", company: "OpenAI", location: "San Francisco, CA", salary: "$200k - $300k", icon: "policy" },
-  { id: 11, title: "Fullstack Engineer", company: "OpenAI", location: "San Francisco, CA", salary: "$180k - $250k", icon: "code" },
-  { id: 12, title: "Research Scientist", company: "OpenAI", location: "Remote", salary: "$220k - $320k", icon: "biotech" },
+  { id: 9, title: "Machine Learning Researcher", company: "OpenAI", location: "Remote", salary: "$250k - $350k", icon: "science", domain: "AI" },
+  { id: 10, title: "AI Alignment Engineer", company: "OpenAI", location: "San Francisco, CA", salary: "$200k - $300k", icon: "policy", domain: "AI" },
+  { id: 11, title: "Fullstack Engineer", company: "OpenAI", location: "San Francisco, CA", salary: "$180k - $250k", icon: "code", domain: "Frontend" }, // Can map to frontend or backend
+  { id: 12, title: "Research Scientist", company: "OpenAI", location: "Remote", salary: "$220k - $320k", icon: "biotech", domain: "AI" },
   
   // Anthropic
-  { id: 13, title: "Data Scientist", company: "Anthropic", location: "San Francisco, CA", salary: "$180k - $250k", icon: "data_exploration" },
-  { id: 14, title: "Trust and Safety Analyst", company: "Anthropic", location: "Remote", salary: "$120k - $160k", icon: "security" },
-  { id: 15, title: "Prompt Engineer", company: "Anthropic", location: "San Francisco, CA", salary: "$140k - $190k", icon: "keyboard" },
-  { id: 16, title: "Backend Systems Engineer", company: "Anthropic", location: "Remote", salary: "$170k - $240k", icon: "memory" },
+  { id: 13, title: "Data Scientist", company: "Anthropic", location: "San Francisco, CA", salary: "$180k - $250k", icon: "data_exploration", domain: "Data" },
+  { id: 14, title: "Trust and Safety Analyst", company: "Anthropic", location: "Remote", salary: "$120k - $160k", icon: "security", domain: "Other" },
+  { id: 15, title: "Prompt Engineer", company: "Anthropic", location: "San Francisco, CA", salary: "$140k - $190k", icon: "keyboard", domain: "AI" },
+  { id: 16, title: "Backend Systems Engineer", company: "Anthropic", location: "Remote", salary: "$170k - $240k", icon: "memory", domain: "Backend" },
   
   // Google
-  { id: 17, title: "Product Manager", company: "Google", location: "London, UK (Hybrid)", salary: "£120k - £160k", icon: "assignment" },
-  { id: 18, title: "UX Designer", company: "Google", location: "Mountain View, CA", salary: "$140k - $190k", icon: "design_services" },
-  { id: 19, title: "Cloud Solutions Architect", company: "Google", location: "Remote", salary: "$180k - $250k", icon: "cloud" },
-  { id: 20, title: "Hardware Engineer", company: "Google", location: "Sunnyvale, CA", salary: "$160k - $210k", icon: "developer_board" },
+  { id: 17, title: "Product Manager", company: "Google", location: "London, UK (Hybrid)", salary: "£120k - £160k", icon: "assignment", domain: "Product" },
+  { id: 18, title: "UX Designer", company: "Google", location: "Mountain View, CA", salary: "$140k - $190k", icon: "design_services", domain: "Design" },
+  { id: 19, title: "Cloud Solutions Architect", company: "Google", location: "Remote", salary: "$180k - $250k", icon: "cloud", domain: "Backend" },
+  { id: 20, title: "Hardware Engineer", company: "Google", location: "Sunnyvale, CA", salary: "$160k - $210k", icon: "developer_board", domain: "Other" },
   
   // Meta
-  { id: 21, title: "VR Interaction Designer", company: "Meta", location: "Seattle, WA", salary: "$150k - $200k", icon: "view_in_ar" },
-  { id: 22, title: "iOS Developer", company: "Meta", location: "Menlo Park, CA (Hybrid)", salary: "$160k - $220k", icon: "phone_iphone" },
-  { id: 23, title: "Data Analytics Manager", company: "Meta", location: "Remote", salary: "$170k - $230k", icon: "analytics" },
-  { id: 24, title: "Content Strategist", company: "Meta", location: "New York, NY", salary: "$110k - $160k", icon: "feed" },
+  { id: 21, title: "VR Interaction Designer", company: "Meta", location: "Seattle, WA", salary: "$150k - $200k", icon: "view_in_ar", domain: "Design" },
+  { id: 22, title: "iOS Developer", company: "Meta", location: "Menlo Park, CA (Hybrid)", salary: "$160k - $220k", icon: "phone_iphone", domain: "Frontend" },
+  { id: 23, title: "Data Analytics Manager", company: "Meta", location: "Remote", salary: "$170k - $230k", icon: "analytics", domain: "Data" },
+  { id: 24, title: "Content Strategist", company: "Meta", location: "New York, NY", salary: "$110k - $160k", icon: "feed", domain: "Product" },
 ];
+
+const DOMAINS = ["All", "Frontend", "Backend", "AI", "Data", "Design", "Product"];
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeDomain, setActiveDomain] = useState("All");
   const [showAllJobs, setShowAllJobs] = useState(false);
 
-  const filteredJobs = JOBS.filter(job => 
-    job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    job.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    job.location.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredJobs = JOBS.filter(job => {
+    const matchesSearch = job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          job.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          job.location.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesDomain = activeDomain === "All" || job.domain === activeDomain;
+    return matchesSearch && matchesDomain;
+  });
 
-  const displayedJobs = showAllJobs || searchQuery ? filteredJobs : filteredJobs.slice(0, 7);
+  const displayedJobs = showAllJobs || searchQuery || activeDomain !== "All" ? filteredJobs : filteredJobs.slice(0, 7);
 
   return (
     <>
@@ -63,15 +68,20 @@ export default function Home() {
             <a className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="/#browse-jobs">Browse Jobs</a>
             <a className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="/#featured-companies">Featured Companies</a>
             <a className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#">Resources</a>
-            <a className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#">About</a>
+            <a className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="/#about">About</a>
           </div>
           <div className="flex items-center gap-4">
-            <button className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-md px-3 py-2 active:scale-95 duration-150 ease-in-out">
+            <button 
+              onClick={() => alert("TalentBridge is a no-login platform for candidates! You can apply to any job directly without creating an account.\n\n(Employers: Please use the 'For Employers' portal to sign in)")}
+              className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-md px-3 py-2 active:scale-95 duration-150 ease-in-out"
+            >
               Sign In
             </button>
-            <button className="bg-white border border-blue-600 text-blue-600 dark:text-blue-400 font-semibold px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-md transition-all active:scale-95 duration-150 ease-in-out">
-              For Employers
-            </button>
+            <Link href="/employers">
+              <button className="bg-white border border-blue-600 text-blue-600 dark:text-blue-400 font-semibold px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-md transition-all active:scale-95 duration-150 ease-in-out">
+                For Employers
+              </button>
+            </Link>
           </div>
         </div>
       </nav>
@@ -110,6 +120,19 @@ export default function Home() {
               className="absolute inset-4 object-cover rounded-xl shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)] border border-outline-variant w-[calc(100%-2rem)] h-[calc(100%-2rem)]" 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8tPTqudrUIAtju6-KC7ESoiAVzZBBdb9gSxRUUKak4MoqXCxBc7GbbUKD7yuy3CeRZyoKHk5HKsfwSbshufj1GOjbPylaM8XSVZ5-Fco6A_GXQQeqXMsM3NziacpMhzes4LN3Tpr_BEnBSsOlDUVUtMfj92vmx9NewyhhUHPeEML1BUtmm6y3tJcN1ZXRc6zrPXTv-V5_VXVjWCBHBKurb38pau1UXGmu7jdyzpe0IKpbkxR8TTCPrOemmfXOJO4Mk-ni2Eg381A"
             />
+          </div>
+        </section>
+
+        {/* Company Overview Ticker */}
+        <section className="w-full border-y border-outline-variant/30 py-10 bg-surface/30 rounded-2xl">
+          <p className="text-center font-label-md text-on-surface-variant mb-8 uppercase tracking-[0.2em]">Companies actively hiring on TalentBridge</p>
+          <div className="flex flex-wrap justify-center items-center gap-x-12 md:gap-x-16 gap-y-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-700 mt-4 mb-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe" className="h-8 w-auto object-contain drop-shadow-sm" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Vercel_logo_black.svg" alt="Vercel" className="h-6 w-auto object-contain dark:invert drop-shadow-sm" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" className="h-7 w-auto object-contain dark:invert drop-shadow-sm" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Anthropic_logo.svg" alt="Anthropic" className="h-5 w-auto object-contain dark:invert drop-shadow-sm" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-8 w-auto object-contain drop-shadow-sm" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="h-5 w-auto object-contain drop-shadow-sm" />
           </div>
         </section>
 
@@ -241,25 +264,54 @@ export default function Home() {
 
         {/* Browse Jobs Section */}
         <section id="browse-jobs" className="flex flex-col gap-8 mb-12 scroll-mt-24">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <h2 className="font-headline-lg text-headline-lg text-on-background">Browse Jobs</h2>
-            
-            <div className="relative max-w-md w-full">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
-              <input 
-                type="text"
-                placeholder="Search by title, company, or location..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface-container-lowest text-on-surface"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <h2 className="font-headline-lg text-headline-lg text-on-background whitespace-nowrap">Browse Jobs</h2>
+              
+              <div className="flex items-center gap-2 w-full md:w-auto">
+                <div className="relative w-full md:w-[320px]">
+                  <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+                  <input 
+                    type="text"
+                    placeholder="Search titles, companies..."
+                    className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface-container-lowest text-on-surface"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </div>
+                <button 
+                  className="bg-primary text-on-primary px-5 py-2.5 rounded-lg font-medium hover:bg-on-primary-fixed-variant transition-colors flex-shrink-0 shadow-sm"
+                  onClick={() => {
+                    document.getElementById('browse-jobs')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+
+            {/* Domain Filters */}
+            <div className="flex flex-wrap gap-2 mb-2">
+              {DOMAINS.map(domain => (
+                <button
+                  key={domain}
+                  onClick={() => setActiveDomain(domain)}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                    activeDomain === domain
+                      ? "bg-primary text-on-primary shadow-sm"
+                      : "bg-surface-container-low text-on-surface-variant hover:bg-surface-container border border-outline-variant hover:border-outline"
+                  }`}
+                >
+                  {domain}
+                </button>
+              ))}
             </div>
           </div>
           
           <div className="flex flex-col gap-4">
             {displayedJobs.length === 0 ? (
-              <div className="py-12 text-center text-on-surface-variant font-body-lg">
-                No jobs found matching "{searchQuery}".
+              <div className="py-12 text-center text-on-surface-variant font-body-lg bg-surface-container-lowest rounded-lg border border-outline-variant">
+                No jobs found matching your current filters.
               </div>
             ) : (
               <>
@@ -287,7 +339,7 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
-                {!showAllJobs && !searchQuery && filteredJobs.length > 7 && (
+                {!showAllJobs && !searchQuery && activeDomain === "All" && filteredJobs.length > 7 && (
                   <button 
                     onClick={() => setShowAllJobs(true)}
                     className="mt-4 bg-surface-container-low text-on-surface border border-outline-variant font-label-md text-label-md px-6 py-3 rounded-lg hover:bg-surface-container transition-colors w-full md:w-auto md:self-center"
@@ -297,6 +349,52 @@ export default function Home() {
                 )}
               </>
             )}
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="flex flex-col gap-8 scroll-mt-24">
+          <div className="bg-surface-container-lowest border border-outline-variant rounded-2xl p-8 md:p-12 shadow-[0_1px_3px_rgba(0,0,0,0.05)] relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+            
+            <h2 className="font-headline-lg text-headline-lg text-on-background mb-8 relative z-10">About TalentBridge</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
+              <div className="flex flex-col gap-6 font-body-lg text-on-surface-variant">
+                <p>
+                  TalentBridge is built on a simple premise: <strong>hiring should be about skills, not pedigree.</strong>
+                </p>
+                <p>
+                  We are a modern recruitment portal that perfectly matches top professionals with the world's most innovative teams. 
+                  Unlike traditional job boards, we've designed a completely frictionless, <strong>no-login required</strong> application experience for candidates.
+                </p>
+                <p>
+                  Our advanced parsing technology and skill-based matching algorithms ensure that your application is evaluated on its true merit, seamlessly connecting you with your next big opportunity.
+                </p>
+              </div>
+              
+              <div className="flex flex-col gap-6">
+                <div className="bg-surface-container-low p-6 rounded-xl border border-outline-variant hover:border-primary transition-colors">
+                  <h3 className="font-title-lg text-title-lg text-on-background mb-3 flex items-center gap-2">
+                    <span className="material-symbols-outlined text-primary">verified</span>
+                    Anti-Bias Commitment
+                  </h3>
+                  <p className="font-body-md text-on-surface-variant">
+                    We actively work to reduce unconscious bias. During the initial review stages, certain identifying information (like your name and photo) is hidden from hiring managers, allowing your skills and experience to speak for themselves.
+                  </p>
+                </div>
+                
+                <div className="bg-surface-container-low p-6 rounded-xl border border-outline-variant hover:border-primary transition-colors">
+                  <h3 className="font-title-lg text-title-lg text-on-background mb-3 flex items-center gap-2">
+                    <span className="material-symbols-outlined text-primary">bolt</span>
+                    Frictionless Process
+                  </h3>
+                  <p className="font-body-md text-on-surface-variant">
+                    No passwords to remember. No lengthy profile setups. Just find a role you love, upload your PDF resume, answer a few quick questions, and you're done in under 2 minutes.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>
