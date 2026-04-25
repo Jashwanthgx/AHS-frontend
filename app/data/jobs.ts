@@ -2,8 +2,8 @@ export const JOBS = [
   // Stripe
   { 
     id: 1, title: "Senior Staff Software Engineer", company: "Stripe", location: "Bangalore, KA (Hybrid)", salary: "₹45L - ₹65L", icon: "code", domain: "Backend", type: "Full-time",
-    description: "Help us build the pipes that move money around India. You'll be working on our core payment stack, making sure every transaction is safe and lightning fast.",
-    requirements: ["Deep experience with backend systems", "You actually like solving hard infrastructure problems", "Previous FinTech work is great, but not a dealbreaker"]
+    description: "Lead the design and implementation of Stripe's core payment infrastructure in India. You will work on systems that process billions of dollars in transactions every day.",
+    requirements: ["10+ years of experience in distributed systems", "Expertise in Go, Java, or Ruby", "Previous experience in FinTech is a plus"]
   },
   { 
     id: 2, title: "Payment Systems Architect", company: "Stripe", location: "Remote (India)", salary: "₹35L - ₹55L", icon: "account_balance", domain: "Backend", type: "Contract",
@@ -89,9 +89,8 @@ export const COMPANIES = [
     id: "stripe",
     name: "Stripe",
     logo: "https://www.vectorlogo.zone/logos/stripe/stripe-icon.svg",
-    bgImage: "/ceo_collison_stripe_1777120567404.png",
-    description: "Everything you need to accept payments and grow your business online. We power some of India's biggest startups like Zomato and Swiggy.",
-    about: "We're a team of engineers and designers building the financial infrastructure for the internet. If you've ever paid for something online in India, there's a good chance we helped make it happen.",
+    description: "Financial infrastructure for the internet. Stripe's India headquarters in Bangalore powers digital payments for thousands of Indian businesses.",
+    about: "Stripe is a technology company that builds economic infrastructure for the internet. Businesses of every size—from new startups to public companies like Zomato and Swiggy—use our software to accept payments and manage their businesses online.",
     location: "Bangalore, KA",
     website: "https://stripe.com"
   },
@@ -99,7 +98,6 @@ export const COMPANIES = [
     id: "vercel",
     name: "Vercel",
     logo: "https://www.vectorlogo.zone/logos/vercel/vercel-icon.svg",
-    bgImage: "/ceo_rauch_vercel_1777120586712.png",
     description: "Platform for frontend developers, with a strong engineering presence in Pune and Bangalore.",
     about: "Vercel is the platform for frontend developers, providing the speed and reliability innovators need to create at the moment of inspiration. Our India team is core to our global infrastructure.",
     location: "Pune, MH",
@@ -108,18 +106,16 @@ export const COMPANIES = [
   {
     id: "openai",
     name: "OpenAI",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
-    bgImage: "/ceo_altman_openai_1777120602550.png",
-    description: "We're a research lab working to build safe and powerful AI. Our Hyderabad hub is growing fast.",
-    about: "We're a team of researchers and engineers working to make sure AI benefits everyone. We focus on building models that are safe, useful, and aligned with human values.",
+    logo: "https://www.vectorlogo.zone/logos/openai/openai-icon.svg",
+    description: "Pioneering AI research company with a growing collaboration hub in Hyderabad.",
+    about: "OpenAI is an AI research and deployment company. Our mission is to ensure that artificial general intelligence benefits all of humanity. Our India initiatives focus on localized AI safety and alignment.",
     location: "Hyderabad, TS",
     website: "https://openai.com"
   },
   {
     id: "anthropic",
     name: "Anthropic",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/0/00/Anthropic_logo.svg",
-    bgImage: "/ceo_amodei_anthropic_1777120687566.png",
+    logo: "https://www.vectorlogo.zone/logos/anthropic/anthropic-icon.svg",
     description: "Building reliable AI systems with significant data science operations in Mumbai.",
     about: "Anthropic is an AI safety and research company that’s working to build reliable, interpretable, and steerable AI systems. Our Mumbai office leads our global data analytics and evaluation efforts.",
     location: "Mumbai, MH",
@@ -129,7 +125,6 @@ export const COMPANIES = [
     id: "google",
     name: "Google",
     logo: "https://www.vectorlogo.zone/logos/google/google-icon.svg",
-    bgImage: "/ceo_pichai_google_1777120653293.png",
     description: "Google India is a major hub for global product engineering and cloud solutions.",
     about: "Google's mission is to organize the world's information and make it universally accessible and useful. Google India has major offices in Bangalore, Hyderabad, Gurgaon, and Mumbai.",
     location: "Bangalore, KA",
@@ -138,31 +133,10 @@ export const COMPANIES = [
   {
     id: "meta",
     name: "Meta",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
-    bgImage: "/ceo_zuck_meta_1777120669884.png",
+    logo: "https://www.vectorlogo.zone/logos/meta/meta-icon.svg",
     description: "Meta India builds technologies that connect millions across the subcontinent.",
     about: "Meta builds technologies that help people connect, find communities, and grow businesses. Meta India is at the forefront of digital transformation in the region.",
     location: "Gurgaon, HR",
     website: "https://meta.com"
-  },
-  {
-    id: "razorpay",
-    name: "Razorpay",
-    logo: "https://www.vectorlogo.zone/logos/razorpay/razorpay-icon.svg",
-    bgImage: "/ceo_kumar_razorpay_1777120635474.png",
-    description: "Converging payments and banking for India's digital economy.",
-    about: "Razorpay is India's leading full-stack financial services company that helps Indian businesses with comprehensive and innovative solutions.",
-    location: "Bangalore, KA",
-    website: "https://razorpay.com"
-  },
-  {
-    id: "zomato",
-    name: "Zomato",
-    logo: "https://www.vectorlogo.zone/logos/zomato/zomato-icon.svg",
-    bgImage: "/ceo_dhar_zomato_1777120618659.png",
-    description: "Better food for more people. Technology that powers India's hunger.",
-    about: "Launched in 2010, our mission is to ensure nobody has a bad meal. We are one of the world's largest food aggregators.",
-    location: "Gurgaon, HR",
-    website: "https://zomato.com"
   }
 ];
