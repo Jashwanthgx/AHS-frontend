@@ -8,8 +8,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "TalentBridge - The Modern Way to Hire Top Talent",
-  description: "The Modern Way to Hire Top Talent",
+  title: "TalentBridge | Find Your Next High-Impact Role in India",
+  description: "The modern recruitment portal for top tech talent in India. Apply to Zomato, Razorpay, Stripe, and more without the friction of traditional job boards.",
+  keywords: ["Jobs in India", "Software Engineer Jobs Bangalore", "Tech Careers Mumbai", "Startup Jobs Hyderabad", "Apply without login"],
+  authors: [{ name: "TalentBridge Team" }],
+  openGraph: {
+    title: "TalentBridge - The Modern Way to Hire Top Talent",
+    description: "Frictionless job applications for the world's most innovative teams.",
+    url: "https://talentbridge.example.com",
+    siteName: "TalentBridge",
+    locale: "en_IN",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

@@ -4,9 +4,14 @@ import React from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { JOBS, COMPANIES } from "../../data/jobs";
+import AuthPrompt from "../../components/AuthPrompt";
 
 export default function JobDetailPage() {
   const params = useParams();
+  const [authPromptState, setAuthPromptState] = React.useState<{ isOpen: boolean; jobId: number | null }>({
+    isOpen: false,
+    jobId: null,
+  });
   const jobId = parseInt(params.id as string);
   const job = JOBS.find((j) => j.id === jobId);
   const company = COMPANIES.find((c) => c.name === job?.company);
@@ -23,7 +28,7 @@ export default function JobDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 font-inter">
+    <div className="min-h-screen bg-zinc-50 font-inter text-zinc-900">
       {/* Navbar */}
       <nav className="bg-white border-b border-zinc-200 sticky top-0 z-50">
         <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto w-full">
@@ -68,11 +73,12 @@ export default function JobDetailPage() {
                   </div>
                 </div>
               </div>
-              <Link href={`/apply?jobId=${job.id}`}>
-                <button className="bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-700 transition-all active:scale-95 shadow-lg shadow-blue-600/20 whitespace-nowrap">
-                  Apply Now
-                </button>
-              </Link>
+              <button 
+                onClick={() => setAuthPromptState({ isOpen: true, jobId: job.id })}
+                className="bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-700 transition-all active:scale-95 shadow-lg shadow-blue-600/20 whitespace-nowrap"
+              >
+                Apply Now
+              </button>
             </div>
           </div>
 
@@ -137,6 +143,12 @@ export default function JobDetailPage() {
           </div>
         </div>
       </main>
+
+      <AuthPrompt 
+        isOpen={authPromptState.isOpen} 
+        onClose={() => setAuthPromptState({ isOpen: false, jobId: null })} 
+        jobId={authPromptState.jobId}
+      />
     </div>
   );
 }

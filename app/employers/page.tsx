@@ -20,13 +20,15 @@ export default function EmployersPage() {
 
       {/* Main Content */}
       <main className="flex-grow flex flex-col items-center justify-center p-6 w-full">
-        <Link 
-          href="/" 
-          className="flex items-center gap-2 text-zinc-500 hover:text-zinc-900 transition-colors mb-6 group self-center md:self-auto md:mr-[320px]"
-        >
-          <span className="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
-          Back to Home
-        </Link>
+        <div className="w-full max-w-[400px] mb-6">
+          <Link 
+            href="/" 
+            className="inline-flex items-center gap-2 text-zinc-500 hover:text-blue-600 font-medium transition-colors group"
+          >
+            <span className="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+            Back to Home
+          </Link>
+        </div>
 
         <div className="w-full max-w-[400px] sm:min-w-[380px] shrink-0 bg-white rounded-2xl shadow-lg border border-zinc-200 p-8 text-center">
           <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
