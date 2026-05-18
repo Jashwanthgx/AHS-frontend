@@ -2,11 +2,13 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { JOBS, COMPANIES } from "./data/jobs";
 
 const DOMAINS = ["All", "Frontend", "Backend", "AI", "Data", "Design", "Product"];
 
 export default function Home() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeDomain, setActiveDomain] = useState("All");
   const [activeLocation, setActiveLocation] = useState("All");
@@ -223,8 +225,11 @@ export default function Home() {
               </div>
             ) : (
               displayedJobs.map((job) => (
-                <Link key={job.id} href={`/jobs/${job.id}`}>
-                  <div className="group bg-white hover:bg-zinc-50/30 p-6 rounded-[24px] border border-zinc-100 hover:border-blue-600/20 hover:shadow-2xl hover:shadow-blue-600/5 transition-all duration-300 h-full flex flex-col">
+                <div 
+                  key={job.id} 
+                  onClick={() => router.push(`/jobs/${job.id}`)}
+                  className="cursor-pointer group bg-white hover:bg-zinc-50/30 p-6 rounded-[24px] border border-zinc-100 hover:border-blue-600/20 hover:shadow-2xl hover:shadow-blue-600/5 transition-all duration-300 h-full flex flex-col"
+                >
                     <div className="flex items-start justify-between mb-6">
                       <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-zinc-100 flex items-center justify-center p-2.5 group-hover:scale-110 transition-transform">
                         <span className="material-symbols-outlined text-blue-600">{job.icon}</span>
@@ -256,8 +261,7 @@ export default function Home() {
                         </button>
                       </Link>
                     </div>
-                  </div>
-                </Link>
+                </div>
               ))
             )}
           </div>

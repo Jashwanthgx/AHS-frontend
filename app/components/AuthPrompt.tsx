@@ -21,7 +21,7 @@ export default function AuthPrompt({ isOpen, onClose, jobId }: AuthPromptProps) 
       ></div>
       
       {/* Modal */}
-      <div className="relative bg-white rounded-[32px] w-full max-w-md p-8 shadow-2xl animate-in zoom-in-95 fade-in duration-300 border border-zinc-200">
+      <div className="relative bg-white rounded-[32px] w-[400px] max-w-[90vw] p-8 shadow-2xl animate-in zoom-in-95 fade-in duration-300 border border-zinc-200 shrink-0">
         <button 
           onClick={onClose}
           className="absolute top-6 right-6 text-zinc-400 hover:text-zinc-900 transition-colors"
