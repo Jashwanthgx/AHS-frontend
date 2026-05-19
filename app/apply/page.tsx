@@ -63,7 +63,7 @@ export default function ApplyPage() {
   const validateStep = () => {
     switch (step) {
       case 1:
-        return formData.fullName && formData.email && formData.phone && formData.location && formData.github;
+        return formData.fullName && formData.email && formData.phone && formData.github;
       case 2:
         return true; // Resume is technically optional in this mock for now, but we'll check profiles
       case 3:
@@ -236,17 +236,6 @@ export default function ApplyPage() {
                     placeholder="https://github.com/..."
                     value={formData.github}
                     onChange={(e) => updateForm("github", e.target.value)}
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-zinc-900 mb-2">Current Location</label>
-                  <input 
-                    required 
-                    type="text" 
-                    className="w-full px-5 py-4 rounded-2xl border border-zinc-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-600/5 outline-none transition-all bg-zinc-50 text-zinc-900 font-medium placeholder:text-zinc-400"
-                    placeholder="e.g. Bangalore, Mumbai or Remote"
-                    value={formData.location}
-                    onChange={(e) => updateForm("location", e.target.value)}
                   />
                 </div>
               </div>
