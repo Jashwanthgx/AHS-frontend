@@ -3,19 +3,19 @@ import { FiGrid, FiUsers, FiBriefcase, FiCalendar, FiBarChart2, FiSettings, FiCp
 import { useATS } from '../context/ATSContext'
 
 const NAV = [
-  { path: '/dashboard',  label: 'Dashboard',   icon: FiGrid },
-  { path: '/applicants', label: 'Pipeline',     icon: FiUsers },
-  { path: '/jobs',       label: 'Jobs',         icon: FiBriefcase },
-  { path: '/interviews', label: 'Interviews',   icon: FiCalendar },
-  { path: '/analytics',  label: 'Analytics',    icon: FiBarChart2 },
-  { path: '/settings',   label: 'Settings',     icon: FiSettings },
+  { path: '/dashboard',            label: 'Dashboard',   icon: FiGrid },
+  { path: '/dashboard/applicants', label: 'Pipeline',     icon: FiUsers },
+  { path: '/dashboard/jobs',       label: 'Jobs',         icon: FiBriefcase },
+  { path: '/dashboard/interviews', label: 'Interviews',   icon: FiCalendar },
+  { path: '/dashboard/analytics',  label: 'Analytics',    icon: FiBarChart2 },
+  { path: '/dashboard/settings',   label: 'Settings',     icon: FiSettings },
 ]
 
 export default function Sidebar() {
   const { pathname } = useLocation()
   const { apiOnline, stats } = useATS()
 
-  const isActive = (path) => pathname === path || (path === '/dashboard' && pathname === '/')
+  const isActive = (path) => pathname === path
 
   return (
     <aside className="w-[var(--sidebar-w)] bg-slate-900 flex flex-col h-screen flex-shrink-0">
